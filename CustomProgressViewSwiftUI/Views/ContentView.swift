@@ -9,8 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var percentage: CGFloat = 003
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            ProgressView(percentage: self.$percentage)
+        }.padding().onTapGesture {
+            self.percentage = 0.75
+        }.animation(.spring())
     }
 }
 
